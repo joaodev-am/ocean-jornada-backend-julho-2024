@@ -12,4 +12,14 @@ const lista = ['Luke Skywalker', 'Darth Vader', 'Princesa Leia']
 app.get('/item', function (req,res){
   res.send(lista)
 })
+app.use(express.json())
+
+app.post('/item', function (req, res) {
+  const item = req.body.nome
+
+  lista.push(item)
+  res.send('Item criado com sucesso!')
+  
+})
+
 app.listen(3000)
